@@ -1,0 +1,111 @@
+body {
+  text-align: center;
+}
+
+.spaceA {
+  position: relative;
+  right: 400px;
+  top: 210px;
+}
+
+.spaceB {
+  position: relative;
+  left: 400px;
+  bottom: 210px;
+}
+
+.gridContainer {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+
+table {
+  border-spacing: 0;
+  position: relative;
+  left: 33%;
+  width: 500px;
+  height: 500px;
+  table-layout: fixed;
+}
+button{
+  padding:1%;
+  border-radius: 5%;
+  background-color: #42f5bc;
+  font-size: 1rem;
+  position: relative;
+  z-index: 20;
+}
+
+.coin{
+  position: relative;
+  z-index: 20;
+}
+
+button:hover{
+  background-color: #42ecf5;
+  font-size: 1.1rem;
+}
+
+.coin {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 30%;
+  color: #fff;
+}
+
+.info {
+  border: solid 1px;
+  display: grid;
+  position: relative;
+}
+
+.infoItem1, .infoItem2, .infoItem3 {
+  border: solid 1px;
+}
+
+.colorA {
+  background-color: blue;
+}
+
+.colorB {
+  background-color: red;
+}
+
+.lockerPlayerA {
+  height: 100px;
+  width: 200px;
+  position: relative;
+  display: inline-block;
+  border-radius: 5%;
+  border: 3px solid;
+  text-align: center;
+}
+
+.lockerPlayerB {
+  height: 100px;
+  width: 200px;
+  display: inline-block;
+  border-radius: 5%;
+  border: 3px solid;
+  text-align: center;
+}
+
+.diceImg {
+  width: 5%;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.blackText {
+  color: black;
+}
+
+.whiteText {
+  color: #fff;
+}
