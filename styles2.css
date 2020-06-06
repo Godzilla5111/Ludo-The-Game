@@ -1,0 +1,99 @@
+
+
+td {
+	height: 70px;
+	width: 70px;
+	text-align: center;
+}
+
+img{
+  height: 10vh;
+}
+
+.shadowA{
+	box-shadow: 10px 5px 5px red;
+}
+
+.shadowB{
+	box-shadow: 10px 5px 5px blue;
+}
+
+.cell{
+  background-color: #66ffff;
+}
+
+.cell:hover{
+  background-color: #00b3b3;
+}
+
+.coinA {
+	height: 20px;
+	width: 20px;
+	background-color: #cc3300;
+	display: inline-grid;
+	margin: 2px;
+}
+
+.coinB {
+	height: 20px;
+	width: 20px;
+	background-color: blue;
+	display: inline-grid;
+	margin: 2px;
+}
+
+#_1 {
+	background: #ff5252;
+}
+
+#_28 {
+	background: #ff8f8f;
+}
+
+#_15 {
+	background: #4d61ff;
+}
+
+#_14 {
+	background: #8a97ff;
+}
+
+button{
+  padding:1%;
+  border-radius: 5%;
+  background-color: #42f5bc;
+  font-size: 1rem;
+}
+
+button:hover{
+  background-color: #42ecf5;
+  font-size: 1.1rem;
+}
+
+.button{
+  padding:5% 0 5%;
+}
+
+
+.spaceA{
+  float: left;
+  display: inline-block;
+}
+
+
+
+.spaceB{
+  float: right;
+}
+
+.turnA{
+  border:solid 2px;
+}
+
+.turnB{
+  border: solid 2px;
+}
+
+.roll{
+  border: solid 2px;
+}
