@@ -26,6 +26,7 @@ var playerBRoll = $("turnB");
 
 var chance = true;
 
+
 //Convert list to array function!
 function listToArray(list) {
   var arr = [];
@@ -43,8 +44,9 @@ function listToArray(list) {
 function highlightCoinsA() {
   var cellsContainingCoinA = $(".cell").has('.coinA');
   cellsContainingCoinA.each(function() {
-    $(this).addClass("shadowA");
+    $(this).css("box-shadow", "10px 5px 5px red");
   });
+
 }
 
 
@@ -53,9 +55,246 @@ function highlightCoinsA() {
 function highlightCoinsB() {
   var cellsContainingCoinB = $(".cell").has('.coinB');
   cellsContainingCoinB.each(function() {
-    $(this).addClass("shadowB");
+    $(this).css("box-shadow", "10px 5px 5px blue");
+  });
+
+}
+
+
+
+
+
+function removeShadow() {
+  document.querySelectorAll(".cell").forEach((cell, i) => {
+    cell.style.boxShadow = "none";
   });
 }
+
+
+
+
+function clickToMove(num) {
+
+  if ((flagA === 2 && numberOfCoinsCompletedA === 0) || (flagB === 2 && numberOfCoinsCompletedB === 0)) {
+    //store the random number in another var so that it doesnot get lost.
+    var number;
+    number = num;
+
+
+    //   //Add event listener(click) to each square!
+
+    if ((flagA - numberOfCoinsCompletedA) === 2 && chance === true) {
+      var flag1 = true;
+      var cellsOfA = $('.cell').has('.coinA');
+      cellsOfA.each(function() {
+
+        $(this).one("click", function() {
+          if (flag1 === true) {
+
+            var startIdA = this.id;
+            var startPosA = parseInt(startIdA.replace(/^\D+/g, ''))
+            var coinsOnStartPosA = $("#" + startIdA + " div").length;
+            var endPosA = startPosA + num;
+
+            if (coinsOnStartPosA === 1) {
+              $("#" + startIdA).empty();
+              if (endPosA < gridOrder.length) {
+                var targetEndPosA = "#_" + endPosA + ">div";
+
+                if ($(targetEndPosA).length === 0) {
+                  $("#_" + endPosA).append("<div class='coinA'></div>");
+                } else if ($(targetEndPosA).length === 1) {
+                  // if there is one token present on the next position A
+                  if ($("#_" + endPosA).has(".coinB").length) { //If that's B's token!
+                    $("#_" + endPosA).empty(); //Kick the token
+                    $("#_" + endPosA).append("<div class='coinA'></div>");
+                    if (flagB === 1) {
+                      if (numberOfCoinsCompletedB === 0) { //If it was the B's only active token!
+                        $(".coin1B").show(); //Make it reapppear on its locker!
+                        flagB--;
+                      }
+                    }
+                    if (flagB === 2) { //If two tokens of B are out of the locker, doesn't matter how many completed!
+                      $(".coin2B").show();
+                      flagB--;
+                    }
+                  } else if ($("#_" + endPosA).has(".coinA").length) {
+                    $("#_" + endPosA).append("<div class='coinA'></div>");
+                  }
+                } else if ($(targetEndPosA).length === 2) { //If the start position of A is occupied by two coins of B!
+                  $("#_" + endPosA).empty(); //Kick both the coins
+                  $("#_" + endPosA).append("<div class='coinA'></div>"); //Add A's coin!
+                  $(".coin1B").show(); //Send them back to their locker!Make them reappear!
+                  $(".coin2B").show();
+                  flagB -= 2;
+                }
+
+              } else {
+                alert("Coin Completed Player A!");
+                numberOfCoinsCompletedA++;
+              }
+            } else if (coinsOnStartPosA === 2) {
+              // $(this).children('img')[0];
+              document.querySelectorAll("td>.coinA")[0].remove();
+              if (endPosA < gridOrder.length) {
+                var targetEndPosA = "#_" + endPosA + ">div";
+
+                if ($(targetEndPosA).length === 0) {
+                  $("#_" + endPosA).append("<div class='coinA'></div>");
+                } else if ($(targetEndPosA).length === 1) {
+                  // if there is one token present on the next position A
+                  if ($("#_" + endPosA).has(".coinB").length) { //If that's B's token!
+                    $("#_" + endPosA).empty(); //Kick the token
+                    $("#_" + endPosA).append("<div class='coinA'></div>");
+                    if (flagB === 1) {
+                      if (numberOfCoinsCompletedB === 0) { //If it was the B's only active token!
+                        $(".coin1B").show(); //Make it reapppear on its locker!
+                        flagB--;
+                      }
+                    }
+                    if (flagB === 2) { //If two tokens of B are out of the locker, doesn't matter how many completed!
+                      $(".coin2B").show();
+                      flagB--;
+                    }
+                  } else if ($("#_" + endPosA).has(".coinA").length) {
+                    $("#_" + endPosA).append("<div class='coinA'></div>");
+                  }
+                } else if ($(targetEndPosA).length === 2) { //If the start position of A is occupied by two coins of B!
+                  $("#_" + endPosA).empty(); //Kick both the coins
+                  $("#_" + endPosA).append("<div class='coinA'></div>"); //Add A's coin!
+                  $(".coin1B").show(); //Send them back to their locker!Make them reappear!
+                  $(".coin2B").show();
+                  flagB -= 2;
+                }
+
+              } else {
+                alert("Coin Completed Player A!");
+                numberOfCoinsCompletedA++;
+              }
+
+            }
+
+            chance = !chance;
+            removeShadow();
+            $("#buttonB").show();
+            flag1 = false;
+
+          }
+        });
+
+      });
+
+
+    }
+
+
+
+
+    if ((flagB - numberOfCoinsCompletedB) === 2 && chance === false) {
+      var flag2 = true;
+      var cellsOfB = $('.cell').has('.coinB');
+      cellsOfB.each(function() {
+
+        $(this).one("click", function() {
+          if (flag2 === true) {
+
+
+
+            var startIdB = this.id;
+            var startPosB = orderB.indexOf(parseInt(startIdB.replace(/^\D+/g, '')));
+            var coinsOnStartPosB = $("#" + startIdB + " div").length;
+            var endPosB = startPosB + num;
+
+            if (coinsOnStartPosB === 1) {
+              $("#" + startIdB).empty();
+              if (endPosB < gridOrder.length - 1) {
+                var targetEndPosB = "#_" + orderB[endPosB] + ">div";
+
+                if ($(targetEndPosB).length === 0) {
+                  $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
+                } else if ($(targetEndPosB).length === 1) {
+                  // if there is one token present on the next position B
+                  if ($("#_" + orderB[endPosB]).has(".coinA").length) { //If that's A's token!
+                    $("#_" + orderB[endPosB]).empty(); //Kick the token
+                    $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
+                    if (flagA === 1) {
+                      if (numberOfCoinsCompletedA === 0) { //If it was the A's only active token!
+                        $(".coin1A").show(); //Make it reapppear on its locker!
+                        flagA--;
+                      }
+                    }
+                    if (flagA === 2) { //If two tokens of A are out of the locker, doesn't matter how many completed!
+                      $(".coin2A").show();
+                      flagA--;
+                    }
+                  } else if ($("#_" + orderB[endPosB]).has(".coinB").length) {
+                    $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
+                  }
+
+
+                } else if ($(targetEndPosB).length === 2) { //If the start position of B is occupied by two coins of A!
+                  $("#_" + orderB[endPosB]).empty(); //Kick both the coins
+                  $("#_" + orderB[endPosB]).append("<div class='coinB'></div>"); //Add B's coin!
+                  $(".coin1A").show(); //Send them back to their locker!Make them reappear!
+                  $(".coin2A").show();
+                  flagA -= 2;
+                }
+
+              } else {
+                alert("Coin Completed PlayerB!");
+                numberOfCoinsCompletedB++;
+              }
+            } else if (coinsOnStartPosB === 2) {
+              document.querySelectorAll("td>.coinB")[0].remove();
+              if (endPosB < gridOrder.length - 1) {
+                var targetEndPosB = "#_" + orderB[endPosB] + ">div";
+
+                if ($(targetEndPosB).length === 0) {
+                  $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
+                } else if ($(targetEndPosB).length === 1) {
+                  // if there is one token present on the next position B
+                  if ($("#_" + orderB[endPosB]).has(".coinA").length) { //If that's A's token!
+                    $("#_" + orderB[endPosB]).empty(); //Kick the token
+                    $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
+                    if (flagA === 1) {
+                      if (numberOfCoinsCompletedA === 0) { //If it was the A's only active token!
+                        $(".coin1A").show(); //Make it reapppear on its locker!
+                        flagA--;
+                      }
+                    }
+                    if (flagA === 2) { //If two tokens of A are out of the locker, doesn't matter how many completed!
+                      $(".coin2A").show();
+                      flagA--;
+                    }
+                  } else if ($("#_" + orderB[endPosB]).has(".coinB").length) {
+                    $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
+                  }
+
+
+                } else if ($(targetEndPosB).length === 2) { //If the start position of B is occupied by two coins of A!
+                  $("#_" + orderB[endPosB]).empty(); //Kick both the coins
+                  $("#_" + orderB[endPosB]).append("<div class='coinB'></div>"); //Add B's coin!
+                  $(".coin1A").show(); //Send them back to their locker!Make them reappear!
+                  $(".coin2A").show();
+                  flagA -= 2;
+                }
+
+              }
+
+            }
+
+
+            chance = !chance;
+            removeShadow();
+            $("#buttonA").show();
+            flag2 = false;
+          }
+        });
+      });
+    }
+  }
+}
+
 
 
 
@@ -125,7 +364,6 @@ function autoMove(num) {
 
   {
     if ((flagB === 1 && numberOfCoinsCompletedB === 0) || (flagB === 2 && numberOfCoinsCompletedB === 1)) {
-      console.log("hi");
       var coinBToBeMoved = $(".cell").has(".coinB");
       var idOfCoinBToBeMoved;
       coinBToBeMoved.each(function() {
@@ -134,7 +372,6 @@ function autoMove(num) {
 
       var startPositionB = orderB.indexOf(parseInt(idOfCoinBToBeMoved.replace(/^\D+/g, '')));
 
-      console.log(startPositionB);
       $("#" + idOfCoinBToBeMoved).empty();
       var nextPositionB = startPositionB + num;
       if (nextPositionB < gridOrder.length - 1) {
@@ -187,10 +424,6 @@ function autoMove(num) {
 
 
 
-
-//
-//
-//
 function diceRollA() {
 
   if (chance === true) {
@@ -209,11 +442,20 @@ function diceRollA() {
       if (randomNumberA !== 6) {
         if (flagA === 0) {
           //do nothing!
+          $("#buttonA").hide();
+          chance = !chance;
+          $("#buttonB").show();
         } else if (flagA === 1) {
           if (numberOfCoinsCompletedA === 0) {
             autoMove(randomNumberA);
+            $("#buttonA").hide();
+            chance = !chance;
+            $("#buttonB").show();
           } else if (numberOfCoinsCompletedA === 1) {
             //do nothing
+            $("#buttonA").hide();
+            chance = !chance;
+            $("#buttonB").show();
           }
 
         } else if (flagA === 2) {
@@ -222,15 +464,22 @@ function diceRollA() {
             document.querySelectorAll(".coinA").forEach((coinA, i) => {
               coinA.style.cursor = "pointer";
             });
-
-            //click to move
+            $("#buttonA").hide();
+            // flag1 = true;
+            clickToMove(randomNumberA);
+            // chance = !chance;
+            // $("#buttonB").show();//come here
           } else if (numberOfCoinsCompletedA === 1) {
             autoMove(randomNumberA);
+            $("#buttonA").hide();
+            chance = !chance;
+            $("#buttonB").show();
           }
         }
-        chance = !chance;
-        $("#buttonB").show();
-        $("#buttonA").hide();
+        // $("#buttonA").hide();
+        // chance = !chance;
+        // $("#buttonB").show();
+
       } else if (randomNumberA === 6) {
         if (flagA === 0) {
           $(".coin1A").hide();
@@ -241,7 +490,7 @@ function diceRollA() {
               if ($("#_1").has(".coinB").length) { //If that's B's token/s!
 
                 $("#_1").empty(); //Kick the token/s
-                $(".coin1B").show();
+                // $(".coin1B").show();
                 $("#_1").append("<div class='coinA'></div>");
                 if (flagB === 1) {
                   if (numberOfCoinsCompletedB === 0) { //If it was the B's only active token!
@@ -358,10 +607,13 @@ function diceRollA() {
             document.querySelectorAll(".coinA").forEach((coinA, i) => {
               coinA.style.cursor = "pointer";
             });
-            //click to move
-            chance = !chance;
-            $("#buttonB").show();
             $("#buttonA").hide();
+            // flag1 = true;
+            clickToMove(randomNumberA);
+
+            // chance = !chance;
+            // $("#buttonB").show();
+            // $("#buttonA").hide();
             return;
           } else if (numberOfCoinsCompletedA === 1) {
             autoMove(randomNumberA);
@@ -409,11 +661,20 @@ function diceRollB() {
       if (randomNumberB !== 6) {
         if (flagB === 0) {
           //do nothing!
+          chance = !chance;
+          $("#buttonA").show();
+          $("#buttonB").hide();
         } else if (flagB === 1) {
           if (numberOfCoinsCompletedB === 0) {
             autoMove(randomNumberB);
+            chance = !chance;
+            $("#buttonA").show();
+            $("#buttonB").hide();
           } else if (numberOfCoinsCompletedB === 1) {
             //do nothing
+            chance = !chance;
+            $("#buttonA").show();
+            $("#buttonB").hide();
           }
 
         } else if (flagB === 2) {
@@ -423,15 +684,20 @@ function diceRollB() {
               coinB.style.cursor = "pointer";
             });
 
-            //click to move
+            $("#buttonB").hide();
+            // flag2 = true;
+            clickToMove(randomNumberB);
           } else if (numberOfCoinsCompletedB === 1) {
-            console.log("hi");
+
             autoMove(randomNumberB);
+            chance = !chance;
+            $("#buttonA").show();
+            $("#buttonB").hide();
           }
         }
-        chance = !chance;
-        $("#buttonA").show();
-        $("#buttonB").hide();
+        // chance = !chance;
+        // $("#buttonA").show();
+        // $("#buttonB").hide();
       } else if (randomNumberB === 6) {
         if (flagB === 0) {
           $(".coin1B").hide();
@@ -442,7 +708,7 @@ function diceRollB() {
               if ($("#_15").has(".coinA").length) { //If that's A's token/s!
 
                 $("#_15").empty(); //Kick the token
-                $(".coin1A").show();
+                // $(".coin1A").show();
                 $("#_15").append("<div class='coinB'></div>");
                 if (flagA === 1) {
                   if (numberOfCoinsCompletedA === 0) { //If it was the A's only active token!
@@ -559,10 +825,11 @@ function diceRollB() {
             document.querySelectorAll(".coinB").forEach((coinB, i) => {
               coinB.style.cursor = "pointer";
             });
-            //click to move
-            chance = !chance;
-            $("#buttonA").show();
+
             $("#buttonB").hide();
+            // flag2 = true;
+            clickToMove(randomNumberB);
+
             return;
           } else if (numberOfCoinsCompletedB === 1) {
             autoMove(randomNumberB);
