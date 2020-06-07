@@ -11,7 +11,8 @@ td {
 }
 
 img{
-  height: 10vh;
+  height: 120px;
+	width:120px;
 }
 
 .shadowA{
@@ -65,15 +66,15 @@ img{
 }
 
 button{
-  padding:1%;
   border-radius: 5%;
+	padding:10%;
   background-color: #42f5bc;
   font-size: 1rem;
 }
 
 button:hover{
   background-color: #42ecf5;
-  font-size: 1.1rem;
+  font-size: 1.03rem;
 }
 
 .button{
@@ -83,23 +84,38 @@ button:hover{
 
 .spaceA{
   float: left;
+	padding:2%;
   display: inline-block;
+	border:solid 7px;
+	border-color: red;
+	position: relative;
+	left: 200px;
+
 }
 
 
 
 .spaceB{
   float: right;
+	padding:2%;
+	display: inline-block;
+	border: solid 7px;
+	border-color: blue;
+	position: relative;
+	top: 300px;
+	right: 200px;
 }
 
 .turnA{
-  border:solid 2px;
+  border:solid 5px;
+	border-color: red;
 }
 
 .turnB{
-  border: solid 2px;
+  border: solid 5px;
+	border-color: blue;
 }
 
 .roll{
-  border: solid 2px;
+  border: solid 5px;
 }
