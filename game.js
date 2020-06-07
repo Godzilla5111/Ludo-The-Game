@@ -27,15 +27,20 @@ var playerBRoll = $("turnB");
 var chance = true;
 
 
-//Convert list to array function!
-function listToArray(list) {
-  var arr = [];
-  for (var node = list; node; node = node.rest) {
-    arr.unshift(node.value);
-
+//A function to notify the players whose turn it is!
+function rollGuide(chance) {
+  if (chance === true) {
+    $(".turnA").html("PLAYER A");
+    $(".turnB").html("");
+  } else if (chance === false) {
+    $(".turnB").html("PLAYER B");
+    $(".turnA").html("");
   }
-  return arr[0].split(" ");
 }
+
+
+rollGuide(chance);
+
 
 
 
@@ -175,6 +180,7 @@ function clickToMove(num) {
             }
 
             chance = !chance;
+            rollGuide(chance);
             removeShadow();
             $("#buttonB").show();
             flag1 = false;
@@ -285,6 +291,7 @@ function clickToMove(num) {
 
 
             chance = !chance;
+            rollGuide(chance);
             removeShadow();
             $("#buttonA").show();
             flag2 = false;
@@ -444,17 +451,20 @@ function diceRollA() {
           //do nothing!
           $("#buttonA").hide();
           chance = !chance;
+          rollGuide(chance);
           $("#buttonB").show();
         } else if (flagA === 1) {
           if (numberOfCoinsCompletedA === 0) {
             autoMove(randomNumberA);
             $("#buttonA").hide();
             chance = !chance;
+            rollGuide(chance);
             $("#buttonB").show();
           } else if (numberOfCoinsCompletedA === 1) {
             //do nothing
             $("#buttonA").hide();
             chance = !chance;
+            rollGuide(chance);
             $("#buttonB").show();
           }
 
@@ -467,18 +477,15 @@ function diceRollA() {
             $("#buttonA").hide();
             // flag1 = true;
             clickToMove(randomNumberA);
-            // chance = !chance;
-            // $("#buttonB").show();//come here
           } else if (numberOfCoinsCompletedA === 1) {
             autoMove(randomNumberA);
             $("#buttonA").hide();
             chance = !chance;
+            rollGuide(chance);
             $("#buttonB").show();
           }
         }
-        // $("#buttonA").hide();
-        // chance = !chance;
-        // $("#buttonB").show();
+
 
       } else if (randomNumberA === 6) {
         if (flagA === 0) {
@@ -513,6 +520,7 @@ function diceRollA() {
           }
           flagA++;
           chance = !chance;
+          rollGuide(chance);
           $("#buttonB").show();
           $("#buttonA").hide();
           return;
@@ -588,6 +596,7 @@ function diceRollA() {
 
 
             chance = !chance;
+            rollGuide(chance);
             $("#buttonB").show();
             $("#buttonA").hide();
             return;
@@ -597,6 +606,7 @@ function diceRollA() {
             flagA++;
             $("#_1").html("<div class='coinA'></div>");
             chance = !chance;
+            rollGuide(chance);
             $("#buttonB").show();
             $("#buttonA").hide();
             return;
@@ -608,16 +618,14 @@ function diceRollA() {
               coinA.style.cursor = "pointer";
             });
             $("#buttonA").hide();
-            // flag1 = true;
+
             clickToMove(randomNumberA);
 
-            // chance = !chance;
-            // $("#buttonB").show();
-            // $("#buttonA").hide();
             return;
           } else if (numberOfCoinsCompletedA === 1) {
             autoMove(randomNumberA);
             chance = !chance;
+            rollGuide(chance);
             $("#buttonB").show();
             $("#buttonA").hide();
             return;
@@ -662,17 +670,20 @@ function diceRollB() {
         if (flagB === 0) {
           //do nothing!
           chance = !chance;
+          rollGuide(chance);
           $("#buttonA").show();
           $("#buttonB").hide();
         } else if (flagB === 1) {
           if (numberOfCoinsCompletedB === 0) {
             autoMove(randomNumberB);
             chance = !chance;
+            rollGuide(chance);
             $("#buttonA").show();
             $("#buttonB").hide();
           } else if (numberOfCoinsCompletedB === 1) {
             //do nothing
             chance = !chance;
+            rollGuide(chance);
             $("#buttonA").show();
             $("#buttonB").hide();
           }
@@ -691,13 +702,12 @@ function diceRollB() {
 
             autoMove(randomNumberB);
             chance = !chance;
+            rollGuide(chance);
             $("#buttonA").show();
             $("#buttonB").hide();
           }
         }
-        // chance = !chance;
-        // $("#buttonA").show();
-        // $("#buttonB").hide();
+
       } else if (randomNumberB === 6) {
         if (flagB === 0) {
           $(".coin1B").hide();
@@ -731,6 +741,7 @@ function diceRollB() {
           }
           flagB++;
           chance = !chance;
+          rollGuide(chance);
           $("#buttonA").show();
           $("#buttonB").hide();
           return;
@@ -806,6 +817,7 @@ function diceRollB() {
 
 
             chance = !chance;
+            rollGuide(chance);
             $("#buttonA").show();
             $("#buttonB").hide();
             return;
@@ -815,6 +827,7 @@ function diceRollB() {
             flagB++;
             $("#_15").html("<div class='coinB'></div>");
             chance = !chance;
+            rollGuide(chance);
             $("#buttonA").show();
             $("#buttonB").hide();
             return;
@@ -834,6 +847,7 @@ function diceRollB() {
           } else if (numberOfCoinsCompletedB === 1) {
             autoMove(randomNumberB);
             chance = !chance;
+            rollGuide(chance);
             $("#buttonA").show();
             $("#buttonB").hide();
             return;
