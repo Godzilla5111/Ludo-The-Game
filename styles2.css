@@ -1,0 +1,150 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-clip: border-box;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  cursor: default;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 3rem;
+  color: #4ECCA3;
+  margin-top: 0;
+}
+
+td {
+  height: 70px;
+  width: 70px;
+  text-align: center;
+}
+
+.cell {
+  border-radius: 50%;
+  background: linear-gradient(to left, rgba(150, 6, 250, 25%), #03fcf4);
+}
+
+img {
+  height: 120px;
+  width: 120px;
+}
+
+.shadowA {
+  box-shadow: 10px 5px 5px red;
+}
+
+.shadowB {
+  box-shadow: 10px 5px 5px blue;
+}
+
+.cell {
+  background-color: #66ffff;
+}
+
+.cell:hover {
+  background-color: #00b3b3;
+}
+
+.coinA {
+  height: 20px;
+  width: 20px;
+  background-color: #cc3300;
+  display: inline-grid;
+  margin: 2px;
+  border-radius: 50%;
+}
+
+.coinB {
+  height: 20px;
+  width: 20px;
+  background-color: blue;
+  display: inline-grid;
+  margin: 2px;
+  border-radius: 50%;
+}
+
+#_1 {
+  background: #ff5252;
+}
+
+#_28 {
+  background: #ff8f8f;
+}
+
+#_15 {
+  background: #4d61ff;
+}
+
+#_14 {
+  background: #8a97ff;
+}
+
+button {
+  border-radius: 5%;
+  padding: 10%;
+  background-color: #42f5bc;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #42ecf5;
+  font-size: 1.03rem;
+  font-weight: bolder;
+}
+
+.button {
+  padding: 5% 0 5%;
+}
+
+.locker {
+  font-size: 1.5rem;
+  font-family: 'Lobster', cursive;
+}
+
+.spaceA {
+  float: left;
+  padding: 2%;
+  display: inline-block;
+  border: solid 7px;
+  border-color: red;
+  position: relative;
+  left: 200px;
+}
+
+.spaceB {
+  float: right;
+  padding: 2%;
+  display: inline-block;
+  border: solid 7px;
+  border-color: blue;
+  position: relative;
+  top: 275px;
+  right: 200px;
+}
+
+.turnA {
+  border: solid 5px;
+  border-color: red;
+  color: red;
+  font-size: 1.25rem;
+}
+
+.turnB {
+  border: solid 5px;
+  border-color: blue;
+  color: blue;
+  font-size: 1.25rem;
+}
+
+.roll {
+  border: solid 5px;
+  font-size: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<script src=" https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<title>Ludo-The Game</title>
+	<link rel="stylesheet" href="styles2.css">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+	<link rel="icon" href="favicon.jpg">
+
+</head>
+
+<body>
+	<center>
+		<h1>Ludo -The Game</h1>
+		<table>
+			<tr>
+				<div class="spaceA">
+					<div class="locker lockerA">Locker Player A <br>
+						<div class="coinA coin1A"></div>
+						<div class="coinA coin2A"></div>
+						<div>
+							<img src="dice6.png" alt="" class="diceImg" id="dicepPlayerA">
+						</div>
+						<div class = "button"><button type="button" id="buttonA" onclick="diceRollA()">Click to Roll!</button></div>
+
+					</div>
+
+
+					<td class="cell" id="_1"></td>
+					<td class="cell" id="_2"></td>
+					<td class="cell" id="_3"></td>
+					<td class="cell" id="_4"></td>
+					<td class="cell" id="_5"></td>
+					<td class="cell" id="_6"></td>
+					<td class="cell" id="_7"></td>
+					<td class="cell" id="_8"></td>
+
+			</tr>
+			<tr>
+
+				<td class="cell" id="_28"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="cell" id="_9"></td>
+
+			</tr>
+			<tr>
+
+				<td class="cell" id="_27"></td>
+				<td></td>
+				<td></td>
+				<td colspan="2" class="turnA">PLAYER A</td>
+				<td></td>
+				<td></td>
+				<td class="cell" id="_10"></td>
+
+			</tr>
+			<tr>
+
+				<td class="cell" id="_26"></td>
+				<td></td>
+				<td></td>
+				<td colspan="2" rowspan="2" class="roll">Your <br>Move! </td>
+				<td></td>
+				<td></td>
+				<td class="cell" id="_11"></td>
+
+			</tr>
+			<tr>
+
+				<td class="cell" id="_25"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="cell" id="_12"></td>
+
+			</tr>
+			<tr>
+
+				<td class="cell" id="_24"></td>
+				<td></td>
+				<td></td>
+				<td colspan="2" class="turnB">PLAYER B</td>
+				<td></td>
+				<td></td>
+				<td class="cell" id="_13"></td>
+
+			</tr>
+			<tr>
+
+				<td class="cell" id="_23"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="cell" id="_14"></td>
+
+			</tr>
+			<tr>
+
+				<td class="cell" id="_22"></td>
+				<td class="cell" id="_21"></td>
+				<td class="cell" id="_20"></td>
+				<td class="cell" id="_19"></td>
+				<td class="cell" id="_18"></td>
+				<td class="cell" id="_17"></td>
+				<td class="cell" id="_16"></td>
+				<td class="cell" id="_15"></td>
+
+				<div class="spaceB">
+					<div class="button"><button type="button" id="buttonB" onclick="diceRollB()">Click to Roll!</button></div>
+					<div class="locker lockerB">Locker Player B <br>
+						<div class="coinB coin1B"></div>
+						<div class="coinB coin2B"></div>
+					</div>
+					<img src="dice6.png" alt="" class="diceImg" id="dicepPlayerB">
+				</div>
+
+				</div>
+				</div>
+
+
+
+
+			</tr>
+		</table>
+		<script src="game.js" charset="utf-8"></script>
+	</center>
+	<footer>
+		By<br />
+		🎲 Anurag Singh 🎲
+	</footer>
+</body>
+
+</html>
