@@ -26,6 +26,9 @@ var playerBRoll = $("turnB");
 
 var chance = true;
 
+var playerA = prompt("Enter Your Name PlayerA!🐱‍👤");
+var playerB = prompt("Enter Your Name PlayerB!🐱‍👤");
+
 
 //A function to notify the players whose turn it is!
 function rollGuide(chance) {
@@ -632,7 +635,7 @@ function diceRollA() {
                 autoMove(randomNumberA);
                 break start;
               } else { //Value entered by A is not 0 or 1!
-                alert("Please enter either 0 or 1 only!");
+                alert("Please enter either 0 or 1 only!👀");
                 continue start; //Keep asking A to enter 0 or 1 until he keeps entering wrong values!
               }
             } while (1);
@@ -688,7 +691,8 @@ function diceRollA() {
 
       }
     } else {
-      alert("PlayerB won the game!");
+      alert("PlayerB won the game! Refresh the page to play again!");
+      $('h1').html(playerB + " won the game!🥇");
       var won = new Audio('applause.mp3');
       won.play();
     }
@@ -866,7 +870,7 @@ function diceRollB() {
                 autoMove(randomNumberB);
                 break start;
               } else { //Value entered by B is not 0 or 1!
-                alert("Please enter either 0 or 1 only!");
+                alert("Please enter either 0 or 1 only!👀");
                 continue start; //Keep asking B to enter 0 or 1 until he keeps entering wrong values!
               }
             } while (1);
@@ -923,7 +927,8 @@ function diceRollB() {
 
       }
     } else {
-      alert("PlayerA won the game!");
+      alert("PlayerA won the game! Refresh the page to play again!");
+      $('h1').html("🥇" + playerA + " won the game!");
       var won = new Audio('applause.mp3');
       won.play();
     }
