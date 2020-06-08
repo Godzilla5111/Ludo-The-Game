@@ -111,6 +111,8 @@ function clickToMove(num) {
                 } else if ($(targetEndPosA).length === 1) {
                   // if there is one token present on the next position A
                   if ($("#_" + endPosA).has(".coinB").length) { //If that's B's token!
+                    var cross = new Audio('ohno.mp3');
+                    cross.play();
                     $("#_" + endPosA).empty(); //Kick the token
                     $("#_" + endPosA).append("<div class='coinA'></div>");
                     if (flagB === 1) {
@@ -127,6 +129,8 @@ function clickToMove(num) {
                     $("#_" + endPosA).append("<div class='coinA'></div>");
                   }
                 } else if ($(targetEndPosA).length === 2) { //If the start position of A is occupied by two coins of B!
+                  var cross = new Audio('ohno.mp3');
+                  cross.play();
                   $("#_" + endPosA).empty(); //Kick both the coins
                   $("#_" + endPosA).append("<div class='coinA'></div>"); //Add A's coin!
                   $(".coin1B").show(); //Send them back to their locker!Make them reappear!
@@ -136,6 +140,8 @@ function clickToMove(num) {
 
               } else {
                 alert("Coin Completed Player A!");
+                var coinComplete = new Audio('coincomplete.mp3');
+                coinComplete.play();
                 numberOfCoinsCompletedA++;
               }
             } else if (coinsOnStartPosA === 2) {
@@ -149,6 +155,8 @@ function clickToMove(num) {
                 } else if ($(targetEndPosA).length === 1) {
                   // if there is one token present on the next position A
                   if ($("#_" + endPosA).has(".coinB").length) { //If that's B's token!
+                    var cross = new Audio('ohno.mp3');
+                    cross.play();
                     $("#_" + endPosA).empty(); //Kick the token
                     $("#_" + endPosA).append("<div class='coinA'></div>");
                     if (flagB === 1) {
@@ -165,6 +173,8 @@ function clickToMove(num) {
                     $("#_" + endPosA).append("<div class='coinA'></div>");
                   }
                 } else if ($(targetEndPosA).length === 2) { //If the start position of A is occupied by two coins of B!
+                  var cross = new Audio('ohno.mp3');
+                  cross.play();
                   $("#_" + endPosA).empty(); //Kick both the coins
                   $("#_" + endPosA).append("<div class='coinA'></div>"); //Add A's coin!
                   $(".coin1B").show(); //Send them back to their locker!Make them reappear!
@@ -174,6 +184,8 @@ function clickToMove(num) {
 
               } else {
                 alert("Coin Completed Player A!");
+                var coinComplete = new Audio('coincomplete.mp3');
+                coinComplete.play();
                 numberOfCoinsCompletedA++;
               }
 
@@ -221,6 +233,8 @@ function clickToMove(num) {
                 } else if ($(targetEndPosB).length === 1) {
                   // if there is one token present on the next position B
                   if ($("#_" + orderB[endPosB]).has(".coinA").length) { //If that's A's token!
+                    var cross = new Audio('ohno.mp3');
+                    cross.play();
                     $("#_" + orderB[endPosB]).empty(); //Kick the token
                     $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
                     if (flagA === 1) {
@@ -239,6 +253,8 @@ function clickToMove(num) {
 
 
                 } else if ($(targetEndPosB).length === 2) { //If the start position of B is occupied by two coins of A!
+                  var cross = new Audio('ohno.mp3');
+                  cross.play();
                   $("#_" + orderB[endPosB]).empty(); //Kick both the coins
                   $("#_" + orderB[endPosB]).append("<div class='coinB'></div>"); //Add B's coin!
                   $(".coin1A").show(); //Send them back to their locker!Make them reappear!
@@ -248,6 +264,8 @@ function clickToMove(num) {
 
               } else {
                 alert("Coin Completed PlayerB!");
+                var coinComplete = new Audio('coincomplete.mp3');
+                coinComplete.play();
                 numberOfCoinsCompletedB++;
               }
             } else if (coinsOnStartPosB === 2) {
@@ -260,6 +278,8 @@ function clickToMove(num) {
                 } else if ($(targetEndPosB).length === 1) {
                   // if there is one token present on the next position B
                   if ($("#_" + orderB[endPosB]).has(".coinA").length) { //If that's A's token!
+                    var cross = new Audio('ohno.mp3');
+                    cross.play();
                     $("#_" + orderB[endPosB]).empty(); //Kick the token
                     $("#_" + orderB[endPosB]).append("<div class='coinB'></div>");
                     if (flagA === 1) {
@@ -278,6 +298,8 @@ function clickToMove(num) {
 
 
                 } else if ($(targetEndPosB).length === 2) { //If the start position of B is occupied by two coins of A!
+                  var cross = new Audio('ohno.mp3');
+                  cross.play();
                   $("#_" + orderB[endPosB]).empty(); //Kick both the coins
                   $("#_" + orderB[endPosB]).append("<div class='coinB'></div>"); //Add B's coin!
                   $(".coin1A").show(); //Send them back to their locker!Make them reappear!
@@ -285,6 +307,11 @@ function clickToMove(num) {
                   flagA -= 2;
                 }
 
+              }else {
+                alert("Coin Completed PlayerB!");
+                var coinComplete = new Audio('coincomplete.mp3');
+                coinComplete.play();
+                numberOfCoinsCompletedB++;
               }
 
             }
@@ -331,7 +358,8 @@ function autoMove(num) {
         } else if ($(targetStringNextA).length === 1) {
           // if there is one token present on the next position A
           if ($("#_" + nextPositionA).has(".coinB").length) { //If that's B's token!
-
+            var cross = new Audio('ohno.mp3');
+            cross.play();
             $("#_" + nextPositionA).empty(); //Kick the token
             // $(".coin1B").show();
             $("#_" + nextPositionA).append("<div class='coinA'></div>");
@@ -347,6 +375,8 @@ function autoMove(num) {
             }
           }
         } else if ($(targetStringNextA).length === 2) { //If the start position of A is occupied by two coins of B!
+          var cross = new Audio('ohno.mp3');
+          cross.play();
           $("#_" + nextPositionA).empty(); //Kick both the coins
           $("#_" + nextPositionA).append("<div class='coinA'></div>"); //Add A's coin!
           $(".coin1B").show(); //Send them back to their locker!Make them reappear!
@@ -359,6 +389,8 @@ function autoMove(num) {
 
       } else {
         alert("Coin Completed Player A!");
+        var coinComplete = new Audio('coincomplete.mp3');
+        coinComplete.play();
         numberOfCoinsCompletedA++;
       }
     }
@@ -391,6 +423,8 @@ function autoMove(num) {
         } else if ($(targetStringNextB).length === 1) {
           // if there is one token present on the next position B
           if ($("#_" + orderB[nextPositionB]).has(".coinA").length) { //If that's A's token!
+            var cross = new Audio('ohno.mp3');
+            cross.play();
 
             $("#_" + orderB[nextPositionB]).empty(); //Kick the token
             // $(".coin1A").show();
@@ -407,6 +441,8 @@ function autoMove(num) {
             }
           }
         } else if ($(targetStringNextB).length === 2) { //If the start position of B is occupied by two coins of A!
+          var cross = new Audio('ohno.mp3');
+          cross.play();
           $("#_" + orderB[nextPositionB]).empty(); //Kick both the coins
           $("#_" + orderB[nextPositionB]).append("<div class='coinB'></div>"); //Add B's coin!
           $(".coin1A").show(); //Send them back to their locker!Make them reappear!
@@ -419,6 +455,8 @@ function autoMove(num) {
 
       } else {
         alert("Coin Completed Player B!");
+        var coinComplete = new Audio('coincomplete.mp3');
+        coinComplete.play();
         numberOfCoinsCompletedB++;
       }
     }
@@ -432,6 +470,7 @@ function autoMove(num) {
 
 
 function diceRollA() {
+
 
   if (chance === true) {
 
@@ -447,6 +486,8 @@ function diceRollA() {
 
 
       if (randomNumberA !== 6) {
+        var yellow = new Audio('yellow.mp3');
+        yellow.play();
         if (flagA === 0) {
           //do nothing!
           $("#buttonA").hide();
@@ -488,6 +529,8 @@ function diceRollA() {
 
 
       } else if (randomNumberA === 6) {
+        var blue = new Audio('blue.mp3');
+        blue.play();
         if (flagA === 0) {
           $(".coin1A").hide();
           if ($("#_1>div").length === 0) {
@@ -495,7 +538,8 @@ function diceRollA() {
           } else if ($('#_1>div').length !== 0) { //If startPosition A is non-empty!
             if ($("#_1>div").length === 1) { //if there is one token present on the starting position A
               if ($("#_1").has(".coinB").length) { //If that's B's token/s!
-
+                var cross = new Audio('ohno.mp3');
+                cross.play();
                 $("#_1").empty(); //Kick the token/s
                 // $(".coin1B").show();
                 $("#_1").append("<div class='coinA'></div>");
@@ -511,6 +555,8 @@ function diceRollA() {
                 }
               }
             } else if ($("#_1>div").length === 2) { //If the start position of A is occupied by two coins of B!
+              var cross = new Audio('ohno.mp3');
+              cross.play();
               $("#_1").empty(); //Kick both the coins
               $("#_1").append("<div class='coinA'></div>"); //Add A's coin!
               $(".coin1B").show(); //Send them back to their locker!Make them reappear!
@@ -548,6 +594,8 @@ function diceRollA() {
                   if ($("#_1>div").length === 1) { //if there is one token present on the starting position A
 
                     if ($("#_1").has(".coinB").length) { //If that's B's token/s!
+                      var cross = new Audio('ohno.mp3');
+                      cross.play();
                       $("#_1").empty(); //Kick the token/s
                       $("#_1").append("<div class='coinA'></div>");
                       if (flagB === 1) {
@@ -566,6 +614,8 @@ function diceRollA() {
                     }
                   }
                 } else if ($("#_1>div").length === 2) { //If the start position of A is occupied by two coins of B!
+                  var cross = new Audio('ohno.mp3');
+                  cross.play();
                   $("#_1").empty(); //Kick both the coins
                   $("#_1").append("<div class='coinA'></div>"); //Add A's coin!
                   $(".coin1B").show(); //Send them back to their locker!Make them reappear!
@@ -639,6 +689,8 @@ function diceRollA() {
       }
     } else {
       alert("PlayerB won the game!");
+      var won = new Audio('applause.mp3');
+      won.play();
     }
   }
 }
@@ -667,6 +719,8 @@ function diceRollB() {
 
 
       if (randomNumberB !== 6) {
+        var yellow = new Audio('yellow.mp3');
+        yellow.play();
         if (flagB === 0) {
           //do nothing!
           chance = !chance;
@@ -709,6 +763,8 @@ function diceRollB() {
         }
 
       } else if (randomNumberB === 6) {
+        var blue = new Audio('blue.mp3');
+        blue.play();
         if (flagB === 0) {
           $(".coin1B").hide();
           if ($("#_15>div").length === 0) {
@@ -716,7 +772,8 @@ function diceRollB() {
           } else if ($('#_15>div').length !== 0) { //If startPosition B is non-empty!
             if ($("#_15>div").length === 1) { //if there is one token present on the starting position B
               if ($("#_15").has(".coinA").length) { //If that's A's token/s!
-
+                var cross = new Audio('ohno.mp3');
+                cross.play();
                 $("#_15").empty(); //Kick the token
                 // $(".coin1A").show();
                 $("#_15").append("<div class='coinB'></div>");
@@ -732,6 +789,8 @@ function diceRollB() {
                 }
               }
             } else if ($("#_15>div").length === 2) { //If the start position of B is occupied by two coins of A!
+              var cross = new Audio('ohno.mp3');
+              cross.play();
               $("#_15").empty(); //Kick both the coins
               $("#_15").append("<div class='coinB'></div>"); //Add B's coin!
               $(".coin1A").show(); //Send them back to their locker!Make them reappear!
@@ -769,6 +828,8 @@ function diceRollB() {
                   if ($("#_15>div").length === 1) { //if there is one token present on the starting position B
 
                     if ($("#_15").has(".coinA").length) { //If that's A's token/s!
+                      var cross = new Audio('ohno.mp3');
+                      cross.play();
                       $("#_15").empty(); //Kick the token
                       $("#_15").append("<div class='coinB'></div>");
                       if (flagB === 1) {
@@ -787,6 +848,8 @@ function diceRollB() {
                     }
                   }
                 } else if ($("#_15>div").length === 2) { //If the start position of B is occupied by two coins of B!
+                  var cross = new Audio('ohno.mp3');
+                  cross.play();
                   $("#_15").empty(); //Kick both the coins
                   $("#_15").append("<div class='coinB'></div>"); //Add B's coin!
                   $(".coin1A").show(); //Send them back to their locker!Make them reappear!
@@ -861,6 +924,8 @@ function diceRollB() {
       }
     } else {
       alert("PlayerA won the game!");
+      var won = new Audio('applause.mp3');
+      won.play();
     }
   }
 }
