@@ -100,7 +100,7 @@ function clickToMove(num) {
           if (flag1 === true) {
 
             var startIdA = this.id;
-            var startPosA = parseInt(startIdA.replace(/^\D+/g, ''))
+            var startPosA = parseInt(startIdA.replace(/^\D+/g, ''));
             var coinsOnStartPosA = $("#" + startIdA + " div").length;
             var endPosA = startPosA + num;
 
