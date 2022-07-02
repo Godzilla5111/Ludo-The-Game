@@ -1,8 +1,10 @@
 # Ludo-The-Game
 This is a simple 2 player Ludo Game! This was the third task assigned in the SF summer web-training workshop!<br />
+
+![image](https://user-images.githubusercontent.com/62075225/176989115-ed706ffe-18b1-43ef-962b-7d9b70aa871c.png)
+
 In accordance with the problem statement, here are the rules for the game:<br />
 This is a simplified version of Ludo.<br />In this game:<br /><br />
-
 ● There are 2 tokens for each player (as shown in locker)<br />
 ● Initially all 2 are in locker.<br />
 ● Players roll a die turn-wise, starting from Player A!<br />
